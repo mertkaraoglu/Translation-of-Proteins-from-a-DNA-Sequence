@@ -9,40 +9,6 @@
 
 # Required Libraries
 import numpy as np
-import sys
-
-#all possible translations from exon to polypeptide chain
-d = {"TTT":"Phe", "TTC":"Phe","TTA":"Leu", "TTG":"Leu","TCT":"Ser", "TCC":"Ser"
-     ,"TCA":"Ser", "TCG":"Ser","CTT":"Leu", "CTC":"Leu","CTA":"Leu", "CTG":"Leu"
-    , "CCT": "Pro", "CCC": "Pro", "CCA": "Pro", "CCG": "Pro"
-    , "ACT": "Thr", "ACC": "Thr", "ACA": "Thr", "ACG": "Thr"
-    , "GCT": "Ala", "GCC": "Ala", "GCA": "Ala", "GCG": "Ala"
-    , "GTT": "Val", "GTC": "Val", "GTA": "Val", "GTG": "Val"
-    , "ATT": "Ile", "ATC": "Ile", "ATA": "Ile", "ATG": "Met"
-    , "TAT": "Tyr", "TAC": "Tyr", "TAA": "Stop", "TAG": "Stop"
-    , "CAT": "His", "CAC": "His", "CAA": "Gln", "CAG": "Gln"
-    , "AAT": "Asn", "AAC": "Asn", "AAA": "Lys", "AAG": "Lys"
-    , "GAT": "Asp", "GAC": "Asp", "GAA": "Glu", "GAG": "Glu"
-    , "TGT": "Cys", "TGC": "Cys", "TGA": "Stop", "TGG": "Trp"
-    , "CGT": "Arg", "CGC": "Arg", "CGA": "Arg", "CGG": "Arg"
-    , "AGT": "Ser", "AGC": "Ser", "AGA": "Arg", "AGG": "Arg"
-    , "GGT": "Gly", "GGC": "Gly", "GGA": "Gly", "GGG": "Gly"}
-
-#translating function
-def Translate(exons):
-    l = []
-
-    for i in range(0,len(exons)-2,3):
-        l.append(d[exons[i:i+3]])
-        #this is optional if we want the sequence to be
-        #printed without any spaces and separation:
-        sys.stdout.write(d[exons[i:i+3]])
-
-    #if we print what the function returns we will get separated view
-    #of the amino acids:
-    sys.stdout.write('\n')
-    return l
-
 
 # The FASTA file
 fileContent = open("sequence.fasta", "r")
@@ -115,7 +81,4 @@ end_ind = end_indices[-1]
 
 exons = exons[:end_ind+1]
 
-#Translate(exons)
-print(Translate(exons))
-sys.stdout.flush()
-
+print(exons)
